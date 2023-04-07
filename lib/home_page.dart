@@ -22,10 +22,11 @@ class _HomePageState extends State<HomePage> {
 
   //* checkbox was tapped
   void checkBoxChanged(bool? value, int index) {
-    setState(() {
-      toDoList[index][1] = !toDoList[index][1];
-    });
-    Navigator.of(context).pop();
+    setState(
+      () {
+        toDoList[index][1] = !toDoList[index][1];
+      },
+    );
   }
 
   //* createing new task
@@ -44,10 +45,19 @@ class _HomePageState extends State<HomePage> {
 
   //* saving task
   void saveNewTask() {
+    setState(
+      () {
+        toDoList.add([_controller.text, false]);
+        _controller.clear();
+      },
+    );
+    Navigator.of(context).pop();
+  }
+
+  //* delete task
+  void deleteTask(int index) {
     setState(() {
-      toDoList.add(
-        [_controller.text, false],
-      );
+      toDoList.removeAt(index);
     });
   }
 
@@ -72,6 +82,7 @@ class _HomePageState extends State<HomePage> {
             taskName: toDoList[index][0],
             taskCompleted: toDoList[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
+            deleteFunction: (context) => deleteTask(index),
           );
         },
       ),
