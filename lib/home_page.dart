@@ -12,6 +12,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.yellow[200],
+      appBar: AppBar(
+        title: const Text('TO DO'),
+        elevation: 0,
+      ),
     );
   }
 }
