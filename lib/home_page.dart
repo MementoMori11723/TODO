@@ -11,6 +11,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //* text controller
+  final _controller = TextEditingController();
+
   //* list of ToDo tasks
   List toDoList = [
     ['Build an App', true],
@@ -22,6 +25,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       toDoList[index][1] = !toDoList[index][1];
     });
+    Navigator.of(context).pop();
   }
 
   //* createing new task
@@ -29,9 +33,22 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) {
-        return const DialogBox();
+        return DialogBox(
+          controller: _controller,
+          onSave: saveNewTask,
+          onCancel: () => Navigator.of(context).pop(),
+        );
       },
     );
+  }
+
+  //* saving task
+  void saveNewTask() {
+    setState(() {
+      toDoList.add(
+        [_controller.text, false],
+      );
+    });
   }
 
   @override
