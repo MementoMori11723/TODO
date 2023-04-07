@@ -19,7 +19,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     //* check state
     if (_mybox.get("TODOLIST") == null) {
-      db.createInitalData();
+      db.createinit();
+      db.loadData();
     } else {
       db.loadData();
     }

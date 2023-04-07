@@ -7,11 +7,10 @@ class ToDoDatabase {
   //* referance the box
   final _mybox = Hive.box('mybox');
 
-  //* initial data of this app for the first time
-  void createInitalData() {
-    List toDoList = [
-      ["Welcome to the app!", false],
-      ["Try adding a task", false],
+  void createinit() {
+    toDoList = [
+      ["Welcome to my app", false],
+      ["Try adding a tasks"],
     ];
   }
 
