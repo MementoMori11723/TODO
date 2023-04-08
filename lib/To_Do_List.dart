@@ -34,14 +34,16 @@ class ToDoList extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(24.0),
           decoration: BoxDecoration(
-              color: Colors.yellow, borderRadius: BorderRadius.circular(12)),
+            color: Colors.amber.shade400,
+            borderRadius: BorderRadius.circular(12),
+          ),
           child: Row(
             children: [
               //* Check box
               Checkbox(
                 value: taskCompleted,
                 onChanged: onChanged,
-                activeColor: Colors.black54,
+                activeColor: Colors.amberAccent.shade700,
               ),
               //* Text
               Text(

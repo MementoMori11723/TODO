@@ -15,7 +15,7 @@ class DialogBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.yellow[300],
+      backgroundColor: Colors.amber[200],
       content: SizedBox(
         height: 120,
         child: Column(
@@ -36,7 +36,7 @@ class DialogBox extends StatelessWidget {
                 //* save button
                 MyButton(text: 'Save', onPressed: onSave),
                 //* gap between the buttons
-                const SizedBox(width: 20),
+                const SizedBox(width: 55),
                 //* cancel button
                 MyButton(text: 'Cancel', onPressed: onCancel),
               ],

@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'home_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'splash.dart';
 
 void main() async {
   //* hive
   await Hive.initFlutter();
   //* open boxconst HomePage(),
+
+  // ignore: unused_local_variable
   var box = await Hive.openBox('mybox');
 
   runApp(const MyApp());
@@ -20,13 +23,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: AnimatedSplashScreen(
-        splash: Icons.add_sharp,
+        splash: const SplashScreen(),
         duration: 5000,
-        backgroundColor: Color.fromARGB(255, 247, 247, 108),
+        backgroundColor: Colors.amber,
         splashTransition: SplashTransition.fadeTransition,
         nextScreen: const HomePage(),
       ),
-      theme: ThemeData(primarySwatch: Colors.yellow),
+      theme: ThemeData(primarySwatch: Colors.amber),
     );
   }
 }
